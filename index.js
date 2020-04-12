@@ -6,10 +6,10 @@ var bodyParser = require('body-parser');
 
 //start mysql connection
 var connection = mysql.createConnection({
-  host     : 'localhost', //mysql database host name
-  user     : 'root', //mysql database user name
-  password : '', //mysql database password
-  database : 'test' //mysql database name
+  host     : 'remotemysql.com', //mysql database host name
+  user     : '9NHebGQRVe', //mysql database user name
+  password : 'pNkyKNmJqv', //mysql database password
+  database : '9NHebGQRVe' //mysql database name
 });
 
 connection.connect(function(err) {
@@ -48,7 +48,7 @@ app.get('/api/:username', function (req, res) {
 app.post('/api', function (req, res) {
    var params  = req.body;
    console.log(params);
-   connection.query('INSERT INTO records SET ?', params, function (error, results, fields) {
+   connection.query('INSERT INTO RECORDS SET ?', params, function (error, results, fields) {
 	  if (error) throw error;
 	  res.end(JSON.stringify(results));
 	});
